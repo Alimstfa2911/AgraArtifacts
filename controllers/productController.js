@@ -17,7 +17,7 @@ var gateway = new braintree.BraintreeGateway({
 });
 
 
-export const createProductController = async (req,res) =>{
+export const createProductController = async (req,res) => {
     try{
         const {
             name,
@@ -79,7 +79,7 @@ export const createProductController = async (req,res) =>{
 export const getProductController = async (req,res) =>{
     try{
         const products = await productModel
-        .findById({slug: req.params.slug._id})
+        .find({})
         .populate('category')
         .select("-photo")
         .limit(12)
@@ -331,7 +331,7 @@ export const relatedProductController = async (req,res) =>{
             _id:{$ne:pid}
         }).select("-photo")
             .limit(3)
-            .populate("category")
+            .populate("category","name")
         res.status(200).send({
             success:true,
             products,
@@ -418,5 +418,8 @@ export const brainTreePaymentController = async (req,res) => {
         }
     
 }; 
+
+
+
 
 

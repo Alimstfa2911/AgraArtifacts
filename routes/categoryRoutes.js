@@ -4,7 +4,7 @@ import {categoryController,  createCategoryController, deleteCategoryController,
 
 const router = express.Router();
 
-//routes
+//routes - rest api
 //create cateogy
 router.post(
     "/create-category", 

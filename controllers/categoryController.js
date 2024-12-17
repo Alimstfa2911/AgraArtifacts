@@ -62,7 +62,7 @@ export const updateCategoryController = async (req,res) => {
 //get all cat
 export const categoryController = async (req,res) => {
     try{
-        const category = await categoryModel.find({})
+        const category = await categoryModel.find({});
         res.status(200).send({
             success:true,
             message:'All Category List',
@@ -107,6 +107,7 @@ export const singleCategoryController = async (req,res) =>{
 export const deleteCategoryController = async (req,res)=>{
     try{
         const {id} = req.params;
+
         await categoryModel.findByIdAndDelete(id);
         res.status(200).send({
             success:true,

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const productSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({   
     name:{
         type:String,
         required:true
@@ -26,6 +26,7 @@ const productSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
+    //storing photo with the help of mongodb bcs cloudinary returns string
     photo:{
         data:Buffer,
         contentType:String
