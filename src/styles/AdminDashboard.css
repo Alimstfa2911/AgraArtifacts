@@ -1,0 +1,22 @@
+/* AdminDashboard.css */
+
+.bg-light {
+    background-color: #d1e7ff !important;
+  }
+  
+  .bg-white {
+    background-color: #f2f2f2 !important;
+  }
+  
+  .text-primary {
+    color: #007bff !important;
+  }
+  
+  .text-secondary {
+    color: #6c757d !important;
+  }
+  
+  .card {
+    border: none;
+  }
+  

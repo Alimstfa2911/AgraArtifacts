@@ -1,0 +1,85 @@
+/* Scoped styles for the CreateProduct component */
+.create-product-container {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px;
+  }
+  
+  /* Admin Menu Section specific to CreateProduct */
+  .create-product-admin-menu {
+    background-color: #fff; /* White background for the menu */
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  /* Product Creation Form Section */
+  .create-product-form-container {
+    background-color: #fff; /* White background for the form */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Header Styling for Create Product */
+  .create-product-form-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  /* Scoped Select dropdown styling */
+  .create-product-select {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  /* Button styling for the "Create Product" button */
+  .create-product-btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .create-product-btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  /* Image upload container */
+  .create-product-file-upload-container {
+    margin-bottom: 20px;
+  }
+  
+  .create-product-file-upload-container img {
+    max-height: 200px;
+    margin-top: 10px;
+    border-radius: 4px;
+  }
+  
+  /* Input and textarea fields */
+  .create-product-form-control {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .create-product-form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+  }
+  
+  /* Scoped Select dropdown for shipping option */
+  .create-product-shipping-select {
+    margin-bottom: 20px;
+  }
+  
+  /* Toast notifications styling */
+  .react-toast-notifications {
+    z-index: 9999; /* Ensure notifications appear above other content */
+  }
+  
