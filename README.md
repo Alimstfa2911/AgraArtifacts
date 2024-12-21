@@ -1,2 +1,2 @@
 # AgraArtifacts
-AgraArtifacts - A website small scale business to go globally 
+AgraArtifacts - A website for small scale business to go globally 
