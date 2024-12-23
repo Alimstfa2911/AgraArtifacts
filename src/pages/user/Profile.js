@@ -69,10 +69,10 @@ const Profile = () => {
                     </div>
 
                     {/* Right Content Area (Form) */}
-                    <div className='col-md-9'>
-                        <div className="form-container ">
+                    <div className='col-md-9 bg-white p-4 rounded-3 shadow-sm' >
+                        <div className='col-md-3 w-100 p-4'>
                             <form onSubmit={handleSubmit}>
-                                <h4 className='title'>User Profile</h4>
+                                <h4 className='title'>Update Profile</h4>
                                 <div className="mb-3">
                                     <input
                                         type="text"
@@ -129,6 +129,9 @@ const Profile = () => {
                                 </button>
                             </form>
                         </div>
+                    
+                            
+                        
                     </div>
                     
                 </div>

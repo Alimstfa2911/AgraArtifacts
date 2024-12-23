@@ -19,6 +19,7 @@ const AdminDashboard = () => {
           <div className="col-md-9 bg-white p-4 rounded-3 shadow-sm">
             <div className="card w-100 p-4">
               <h3 className="text-primary mb-4">Admin Dashboard</h3>
+              <hr />
               <div className="user-info">
                 <h5 className="text-secondary mb-2"><strong>Name:</strong> {auth?.user?.name}</h5>
                 <h5 className="text-secondary mb-2"><strong>Email:</strong> {auth?.user?.email}</h5>

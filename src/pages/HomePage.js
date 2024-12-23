@@ -10,7 +10,6 @@ import "../styles/AuthStyles.css";
 import "../styles/Homepage.css";
 import TypingEffect from './TypingEffect.js';
 
-
 const HomePage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
@@ -53,8 +52,6 @@ const HomePage = () => {
     }
   };
 
-
-
   // Get total count
   const getTotal = async () => {
     try {
@@ -95,14 +92,11 @@ const HomePage = () => {
     }
     setChecked(all);
   };
-  
 
   useEffect(() => {
-    if (!checked.length || !radio.length){
+    if (!checked.length || !radio.length) {
       getAllProducts();
-      //eslint-disable-next-line
-      
-    } 
+    }
   }, [checked.length, radio.length]);
 
   useEffect(() => {
@@ -119,292 +113,152 @@ const HomePage = () => {
     }
   };
 
-
   const texts = ["Welcome to AgraArtifacts...", "Enjoy seamless shopping experience for your home...!"];
 
-
+  // Check if any filter is applied
+  const isFiltered = checked.length > 0 || radio.length > 0;
 
   return (
     <Layout title={'All Products - Best Offer'}>
-        <div className="container-fluid bg-info">
-          <div className="row mt-0">
-            
-            {/* Filters Section */}
-            <div
-              className="col-md-2 filters bg-light p-3"
-              style={{
-                position: 'sticky',
-                top: '20px',
-                height: 'calc(100vh - 20px)',
-                overflowY: 'auto',
-                paddingRight: '15px',
-              }}
-            >
-              <div className="d-flex flex-column">
-                {/* Filter by Price Section */}
-                <div
-                  className="filter-price"
-                  style={{ position: 'sticky', top: '0', marginBottom: '20px' }}
-                >
-                  <h4 className="text-center mt-4">Price</h4>
-                  <div className="d-flex flex-column">
-                    <Radio.Group onChange={(e) => setRadio(e.target.value)}
-                      
-                      >
-                      {Prices?.map((p) => (
-                        <div key={p._id}>
-                          <Radio value={p.array}>{p.name}</Radio>
-                        </div>
-                      ))}
-                    </Radio.Group>
-                  </div>
-                </div>
-
-                {/* Filter by Category Section */}
-                <div
-                  className="filter-category"
-                  style={{ position: 'sticky', top: '100px' }}
-                >
-                  <h4 className="text-center">Category</h4>
-                  <div className="d-flex flex-column">
-                    {categories?.map((c) => (
-                      <Checkbox
-                        key={c._id}
-                        onChange={(e) => handleFilter(e.target.checked, c._id)}
-                      >
-                        {c.name}
-                      </Checkbox>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Reset Filters Button */}
-                {/* Reset Filters Button */}
-                  <div className="d-flex flex-column mt-3">
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger"
-                      onClick={()=>window.location.reload()}
-                    >
-                      Reset
-                    </button>
-                  </div>
-
-              </div>
-            </div>
-
-            {/* Products Section */}
-            <div className="col-md-10 bg-white p-4 shadow-sm" >
-              <div>
-                <h1 className="text-center">
-                  <TypingEffect texts={texts} typingSpeed={100} pauseTime={1500} />
-                </h1>
-              </div>
-              
-              {/* Carousel Banner */}
-              <div
-                id="productCarousel"
-                className="carousel slide mb-3"
-                data-bs-ride="carousel"
-                style={{
-                  backgroundColor: '#7D8085',
-                  padding: '12px',
-                  borderRadius:'5px'
-                
-                }}
-                >
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <img
-                      src="../../../images/b1.jpg"
-                      className="d-block w-100"
-                      alt="Banner 1"
-                      style={{
-                        height:'300px',
-                        
-                      }}
-                    />
-                  </div>
-                  <div className="carousel-item ">
-                    <img
-                      src="../../../images/b6.jpg"
-                      className="d-block w-100"
-                      alt="Banner 2"
-                      style={{
-                        height:'300px'
-                      }}
-                    />
-                  </div>
-                  <div className="carousel-item ">
-                    <img
-                      src="../../../images/b3.jpg"
-                      className="d-block w-100"
-                      alt="Banner 3"
-                      style={{
-                        height:'300px'
-                      }}
-                    />
-                  </div>
-                  <div className="carousel-item ">
-                    <img
-                      src="../../../images/i1.jpg"
-                      className="d-block w-100"
-                      alt="Banner 4"
-                      style={{
-                        height:'300px'
-                      }}
-                    />
-                  </div>
-                  <div className="carousel-item ">
-                    <img
-                      src="../../../images/i2.jpg"
-                      className="d-block w-100"
-                      alt="Banner 5"
-                      style={{
-                        height:'300px'
-                      }}
-                    />
-                  </div>
-                  <div className="carousel-item ">
-                    <img
-                      src="../../../images/i3.jpg"
-                      className="d-block w-100"
-                      alt="Banner 6"
-                      style={{
-                        height:'300px'
-                      }}
-                    />
-                  </div>
-                </div>
-                <button
-                  className="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#productCarousel"
-                  data-bs-slide="prev"
-                >
-                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span className="visually-hidden">Previous</span>
-                </button>
-                <button
-                  className="carousel-control-next"
-                  type="button"
-                  data-bs-target="#productCarousel"
-                  data-bs-slide="next"
-                >
-                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span className="visually-hidden">Next</span>
-                </button>
-              </div>
-
-              {/* Product List */}
-              {/* {products.length} */}
-              
-              <div className="d-flex flex-wrap" >
-                {products.length === 0 ? (
-                <p>No products available</p>
-                  ) : (
-                  products?.map((p) => (
-                    <div
-                      className="card m-2 p-1 product-card"
-                      style={{
-                        width: '24rem',
-                        backgroundColor: '#f8f9fa',
-                      }}
-                      key={p._id}
-                    >
-                      <img
-                        src={`/api/v1/product/product-photo/${p._id}`}
-                        className="card-img-top"
-                        alt={p.name}
-                      />
-                      <div
-                        className="card-body"
-                        style={{ backgroundColor: '#f6f9f6' }}
-                      >
-                        <h5 className="card-title">{p.name}</h5>
-                        <p className="card-text">
-                          {p.description.substring(0, 30)}...
-                        </p>
-                        <p className="card-text">$ {p.price}</p>
-                        <div>
-                          <button
-                            className="btn btn-outline-primary"
-                            onClick={() => navigate(`/product/${p.slug}`)}
-                          >
-                            More details
-                          </button>
-                          {/* <button
-                            className="btn btn-outline-success ms-1"
-                            onClick={() => {
-                              setCart([...cart, p]);
-                              localStorage.setItem(
-                                'cart',
-                                JSON.stringify([...cart, p])
-                              );
-                              toast.success('Item added to Cart');
-                            }}
-                          >
-                            Add to Cart
-                          </button> */}
-
-                          <button
-                            className="btn btn-outline-success ms-1"
-                            onClick={() => {
-                              const existingProductIndex = cart.findIndex(item => item._id === p._id);
-
-                              if (existingProductIndex !== -1  ) {
-                                const updatedCart = [...cart];
-                                // Product already exists in the cart: update quantity and price
-                                if(updatedCart[existingProductIndex].noOfItems<updatedCart[existingProductIndex].quantity){
-                                  
-                                  updatedCart[existingProductIndex].noOfItems += 1; // Increment quantity
-                                  updatedCart[existingProductIndex].price += p.price; // Update total price for that product
-                                  setCart(updatedCart);
-                                  localStorage.setItem('cart', JSON.stringify(updatedCart));
-                                  toast.success('Item added to Cart');
-                                }else{
-                                  toast.error('No more element is present');
-                                }
-                                
-                              } else {
-                                // Product not in cart: add as a new item with noOfItems set to 1
-                                const updatedCart = [...cart, { ...p, noOfItems: 1 }];
-                                setCart(updatedCart);
-                                localStorage.setItem('cart', JSON.stringify(updatedCart));
-                                toast.success('Item added to Cart');
-                              }
-                              
-                            }}
-                          >
-                            Add to Cart
-                          </button>
-
-                        </div>
+      <div className="container-fluid bg-info">
+        <div className="row mt-0">
+          {/* Filters Section */}
+          <div className="col-md-2 filters bg-light p-3" style={{ position: 'sticky', top: '20px', height: 'calc(100vh - 20px)', overflowY: 'auto', paddingRight: '15px' }}>
+            <div className="d-flex flex-column">
+              {/* Filter by Price Section */}
+              <div className="filter-price" style={{ position: 'sticky', top: '0', marginBottom: '20px' }}>
+                <h4 className="text-center mt-4">Price</h4>
+                <div className="d-flex flex-column">
+                  <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                    {Prices?.map((p) => (
+                      <div key={p._id}>
+                        <Radio value={p.array}>{p.name}</Radio>
                       </div>
-                    </div>
-                  ))
-                )}
+                    ))}
+                  </Radio.Group>
+                </div>
               </div>
 
-              {/* Pagination Section */}
-              <div className="m-2 p-3 text-center">
-                {products && products.length < total && (
-                  <button
-                    className="btn btn-outline-danger"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setPage(page + 1);
-                    }}
-                  >
-                    {loading ? 'Loading...' : 'Load More...'}
-                  </button>
-                )}
+              {/* Filter by Category Section */}
+              <div className="filter-category" style={{ position: 'sticky', top: '100px' }}>
+                <h4 className="text-center">Category</h4>
+                <div className="d-flex flex-column">
+                  {categories?.map((c) => (
+                    <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
+                      {c.name}
+                    </Checkbox>
+                  ))}
+                </div>
+              </div>
+
+              {/* Reset Filters Button */}
+              <div className="d-flex flex-column mt-3">
+                <button type="button" className="btn btn-outline-danger" onClick={() => window.location.reload()}>
+                  Reset
+                </button>
               </div>
             </div>
           </div>
-        </div>
-    </Layout>
 
+          {/* Products Section */}
+          <div className="col-md-10 bg-white p-4 shadow-sm">
+            {/* Conditionally render TypingEffect and Carousel only when no filters are applied */}
+            {!isFiltered && (
+              <>
+                <div>
+                  <h1 className="text-center">
+                    <TypingEffect texts={texts} typingSpeed={100} pauseTime={1500} />
+                  </h1>
+                </div>
+
+                {/* Carousel Banner */}
+                <div id="productCarousel" className="carousel slide mb-3" data-bs-ride="carousel" style={{ backgroundColor: '#7D8085', padding: '12px', borderRadius: '5px' }}>
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
+                      <img src="../../../images/b1.jpg" className="d-block w-100" alt="Banner 1" style={{ height: '300px' }} />
+                    </div>
+                    <div className="carousel-item">
+                      <img src="../../../images/b6.jpg" className="d-block w-100" alt="Banner 2" style={{ height: '300px' }} />
+                    </div>
+                    {/* Add more carousel items here */}
+                  </div>
+                  <button className="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                  </button>
+                  <button className="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </>
+            )}
+
+            {/* Product List */}
+            <div className="d-flex flex-wrap">
+              {products.length === 0 ? (
+                <p>No products available</p>
+              ) : (
+                products?.map((p) => (
+                  <div className="card m-2 p-2 product-card" style={{ width: '24rem', backgroundColor: '#f8f9fa' }} key={p._id}>
+                    <img
+                      src={`/api/v1/product/product-photo/${p._id}`}
+                      className="card-img-top"
+                      alt={p.name}
+                      style={{ width: "100%", height: "500px", objectFit: "cover" }}
+                    />
+                    <div className="card-body" style={{ backgroundColor: '#dee2e6', borderRadius: '7px' }}>
+                      <h5 className="card-title">{p.name}</h5>
+                      <p className="card-text">{p.description.substring(0, 30)}...</p>
+                      <p className="card-text">$ {p.price}</p>
+                      <div>
+                        <button className="btn btn-outline-primary" onClick={() => navigate(`/product/${p.slug}`)}>
+                          More details
+                        </button>
+                        <button
+                          className="btn btn-outline-success ms-1"
+                          onClick={() => {
+                            const existingProductIndex = cart.findIndex(item => item._id === p._id);
+                            if (existingProductIndex !== -1) {
+                              const updatedCart = [...cart];
+                              if (updatedCart[existingProductIndex].noOfItems < updatedCart[existingProductIndex].quantity) {
+                                updatedCart[existingProductIndex].noOfItems += 1;
+                                updatedCart[existingProductIndex].price += p.price;
+                                setCart(updatedCart);
+                                localStorage.setItem('cart', JSON.stringify(updatedCart));
+                                toast.success('Item added to Cart');
+                              } else {
+                                toast.error('No more element is present');
+                              }
+                            } else {
+                              const updatedCart = [...cart, { ...p, noOfItems: 1 }];
+                              setCart(updatedCart);
+                              localStorage.setItem('cart', JSON.stringify(updatedCart));
+                              toast.success('Item added to Cart');
+                            }
+                          }}
+                        >
+                          Add to Cart
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+
+            {/* Pagination Section */}
+            <div className="m-2 p-3 text-center">
+              {products && products.length < total && (
+                <button className="btn btn-outline-danger" onClick={(e) => { e.preventDefault(); setPage(page + 1); }}>
+                  {loading ? 'Loading...' : 'Load More...'}
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
   );
 };
 

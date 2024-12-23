@@ -23,11 +23,13 @@ const UserMenu = () => {
                     Dashboard
                 </NavLink> */}
 
-                
+        <h4 className='text-center'>User Menu</h4>
         <div className="card mb-3">
+            
                                 
             <div className="card-body text-start">
                                     <h5>Profile</h5>
+                                    <hr />
                                     <p><strong>Name:</strong> {auth?.user?.name}</p>
                                     <p><strong>Email:</strong> {auth?.user?.email}</p>
                                     <p><strong>Address:</strong> {auth?.user?.address}</p>

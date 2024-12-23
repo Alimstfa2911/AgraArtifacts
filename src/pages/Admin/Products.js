@@ -41,6 +41,7 @@ const Products = () => {
                         <h1 className="text-center">
                             All Products List
                         </h1>
+                        <hr />
 
                         <div className="d-flex flex-column" >
                             

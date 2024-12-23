@@ -15,6 +15,7 @@ const Users = () => {
           {/* Right Section - Users Content */}
           <div className="col-md-9 bg-white p-4">
             <h1>All Users</h1>
+            <hr />
 
             
           </div>

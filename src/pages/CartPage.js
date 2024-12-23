@@ -94,7 +94,7 @@ const CartPage = () => {
                     {/* Left Side - Cart Items */}
                     
 
-                    <div className="col-md-8">
+                    <div className="col-md-8 bg-light ">
                         <div className="row">
                             <div className="col-md-12">
                                 {/* <h1 className='text-center bg-light p-2'>
@@ -104,6 +104,7 @@ const CartPage = () => {
                                     <h1 className="text-center bg-light p-2">
                                         <TypingEffect texts={[`Hello.. ${auth?.token && auth?.user.name}`]} typingSpeed={100} pauseTime={1500} />
                                     </h1>
+                                    <hr />
                                 </div>
                                 
 
@@ -114,22 +115,23 @@ const CartPage = () => {
                                 </h4>
                             </div>
                         </div>
-                        <div style={{backgroundColor:'#fff'}}>
+                        <div >
                             {cart?.map((p) => (
-                                <div className="row mb-2 p-3 card flex-row" key={p._id}>
+                                <div className="row mb-5 m-3 p-3 card flex-row" key={p._id}>
                                     
-                                        <div className="col-md-4 ">
+                                        <div className="col-md-5 ">
                                             <img
                                                 src={`/api/v1/product/product-photo/${p._id}`}
                                                 className="card-img-top"
                                                 alt={p.name}
                                             />
                                         </div>
-                                        <div className="col-md-8 " >
+                                        <div className="col-md-7 " >
                                             <h4>{p.name}</h4>
+                                            <hr />
                                             <p>{p.description}</p>
-                                            <p>NoOfItems : {p.noOfItems}</p>
-                                            <h4>Price : {p.price}</h4>
+                                            <p><b>NoOfItems : </b>{p.noOfItems}</p>
+                                            <p><b>Price : </b> {p.price}</p>
                                             <button
                                                 className='btn btn-danger'
                                                 onClick={() => removeCartItem(p._id)}
@@ -144,18 +146,19 @@ const CartPage = () => {
                         </div>
                     </div>
 
+                    
+
                     {/* Right Side - Cart Summary */}
-                    <div className="col-md-4 bg-light p-4 rounded">
+                    <div className="col-md-4 bg-light p-5">
                         <h2>Cart Summary</h2>
                         <p>Total | Checkout | Payment</p>
                         <hr />
-                        <h4>Total: {totalPrice()}</h4>
+                        <h4>Total : {totalPrice()}</h4>
 
                         {auth?.user?.address ? (
                             <>
-                                <div className="mb-3">
-                                    <h4>Current Address:</h4>
-                                    <h5>{auth?.user?.address}</h5>
+                                <div className="mb-2">
+                                    <h4>Current Address : {auth?.user?.address} </h4>
                                     <button
                                         className='btn btn-outline-warning'
                                         onClick={() => navigate('/dashboard/user/profile')}

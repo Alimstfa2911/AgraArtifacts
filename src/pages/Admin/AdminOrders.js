@@ -50,6 +50,7 @@ const AdminOrders = () => {
             
             <div className="col-md-9 bg-white p-4">
                 <h1 className="text-center">All orders</h1>
+                <hr />
                 {orders?.map((o,i) => {
                             return(
                                 <div className="border shadow">

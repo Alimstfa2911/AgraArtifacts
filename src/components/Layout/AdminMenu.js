@@ -48,6 +48,7 @@ const AdminMenu = () => {
                                         
             <div className="card-body text-start">
                 <h5>Profile</h5>
+                <hr />
                 <p><strong>Name:</strong> {auth?.user?.name}</p>
                 <p><strong>Email:</strong> {auth?.user?.email}</p>
                 <p><strong>Phone :</strong> {auth?.user?.phone}</p>

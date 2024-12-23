@@ -77,6 +77,7 @@ const CreateProduct = () => {
                 </div>
                 <div className="col-md-9 bg-white p-4 mx-auto">
                         <h1 className="mb-4 ">Create Product</h1>
+                        <hr />
                         <div className='m-1 w-75' style={{ backgroundColor: '#fff', padding: '30px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
                             {/* Category Selection */}
                             <Select
