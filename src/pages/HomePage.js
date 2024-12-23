@@ -194,13 +194,7 @@ const HomePage = () => {
             </div>
 
             {/* Products Section */}
-            <div
-              className="col-md-10"
-              style={{
-                backgroundColor: '#e9ecef',
-                padding: '0',
-              }}
-            >
+            <div className="col-md-10 bg-white p-4 shadow-sm" >
               <div>
                 <h1 className="text-center">
                   <TypingEffect texts={texts} typingSpeed={100} pauseTime={1500} />
@@ -208,7 +202,7 @@ const HomePage = () => {
               </div>
               
               {/* Carousel Banner */}
-            <div
+              <div
                 id="productCarousel"
                 className="carousel slide mb-3"
                 data-bs-ride="carousel"
@@ -307,13 +301,13 @@ const HomePage = () => {
               
               <div className="d-flex flex-wrap" >
                 {products.length === 0 ? (
-                  <p>No products available</p>
-                ) : (
+                <p>No products available</p>
+                  ) : (
                   products?.map((p) => (
                     <div
                       className="card m-2 p-1 product-card"
                       style={{
-                        width: '25rem',
+                        width: '24rem',
                         backgroundColor: '#f8f9fa',
                       }}
                       key={p._id}

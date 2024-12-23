@@ -24,10 +24,9 @@ const Orders = () => {
 
     return (
         <Layout title={'Your Orders'}>
-            <div className="container-fluid m-3 p-3" style={{ minHeight: '100vh' }}>
                 <div className="row">
                             {/* Left Sidebar - User Menu */}
-                            <div className="col-md-3" style={{ backgroundColor: "#f8f9fa" }}>
+                            <div className="col-md-3 bg-light p-4 rounded-3 shadow-sm"  style={{ backgroundColor: "#f8f9fa" }}>
                                 <UserMenu/>
                             </div>
 
@@ -91,7 +90,7 @@ const Orders = () => {
                         
                 </div>
                 
-            </div>
+        
         </Layout>
     );
 };

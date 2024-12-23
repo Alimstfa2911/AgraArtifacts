@@ -7,9 +7,7 @@ const UserMenu = () => {
 
   return (
     <>
-        <div className="text-center">
-            <h3>User Menu</h3>
-            <div class="list-group ">
+       
             
                 
                 {/* <NavLink to="/dashboard/user/profile" 
@@ -26,9 +24,9 @@ const UserMenu = () => {
                 </NavLink> */}
 
                 
-                <div className="card mb-3">
+        <div className="card mb-3">
                                 
-                                <div className="card-body text-start">
+            <div className="card-body text-start">
                                     <h5>Profile</h5>
                                     <p><strong>Name:</strong> {auth?.user?.name}</p>
                                     <p><strong>Email:</strong> {auth?.user?.email}</p>
@@ -46,11 +44,11 @@ const UserMenu = () => {
                                     <Link to="/dashboard/user/profile" style={{ textDecoration: 'none', color: 'blue' }}>
                                         <p>Update Profile</p>
                                     </Link>
-                                </div>
-                </div>
             </div>
-                
         </div>
+            
+                
+        
         
     </>
   )

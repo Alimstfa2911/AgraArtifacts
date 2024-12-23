@@ -23,53 +23,25 @@ const Dashboard = () => {
 
   return (
     <Layout title={'Dashboard - Ecommerce App'}>
-      <div className="container-fluid m-3 p-3">
+      
         <div className="row">
           {/* Sidebar Section (Profile and Orders) */}
-          <div className="col-md-3" style={{ backgroundColor: "#f8f9fa" }}>
+          <div className="col-md-3 bg-light p-4 rounded-3 shadow-sm" style={{ backgroundColor: "#f8f9fa" }}>
             <UserMenu/>
           </div>
           
 
           {/* Main Content (User Data Section) */}
-          <div className="col-md-9 p-3">
-            <div className="card mb-3">
-              <div className="card-header text-center">
-                <h4>User Details</h4>
-              </div>
+          <div className="col-md-9 bg-white p-4 rounded-3 shadow-sm">
+            <div className="card w-100 p-4">
+              
+              <h4 className="text-primary mb-4">User Details</h4>
+              
               <div className="card-body" style={{ backgroundColor: "#f8f9fa" }}>
-                <div className="row mb-3">
-                  <div className="col-4">
-                    <strong>Name:</strong>
-                  </div>
-                  <div className="col-8">
-                    <span>{auth?.user?.name}</span>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-4">
-                    <strong>Email:</strong>
-                  </div>
-                  <div className="col-8">
-                    <span>{auth?.user?.email}</span>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-4">
-                    <strong>Phone no. :</strong>
-                  </div>
-                  <div className="col-8">
-                    <span>{auth?.user?.phone}</span>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-4">
-                    <strong>Address:</strong>
-                  </div>
-                  <div className="col-8">
-                    <span>{auth?.user?.address}</span>
-                  </div>
-                </div>
+                <h5 className="text-secondary mb-2"><strong>Name:</strong> {auth?.user?.name}</h5>
+                <h5 className="text-secondary mb-2"><strong>Email:</strong> {auth?.user?.email}</h5>
+                <h5 className="text-secondary mb-2"><strong>Phone:</strong> {auth?.user?.phone}</h5>
+                <h5 className="text-secondary mb-2"><strong>Address:</strong> {auth?.user?.address}</h5>
               </div>
 
               {/* Google Map */}
@@ -84,7 +56,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-      </div>
+      
     </Layout>
   );
 };
