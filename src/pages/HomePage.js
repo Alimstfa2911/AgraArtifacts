@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/cart';
 import toast from 'react-hot-toast';
 import "../styles/AuthStyles.css";
+import "../styles/Homepage.css";
+import TypingEffect from './TypingEffect.js';
+
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -117,6 +120,10 @@ const HomePage = () => {
   };
 
 
+  const texts = ["Welcome to AgraArtifacts...", "Enjoy seamless shopping experience for your home...!"];
+
+
+
   return (
     <Layout title={'All Products - Best Offer'}>
         <div className="container-fluid bg-info">
@@ -194,6 +201,12 @@ const HomePage = () => {
                 padding: '0',
               }}
             >
+              <div>
+                <h1 className="text-center">
+                  <TypingEffect texts={texts} typingSpeed={100} pauseTime={1500} />
+                </h1>
+              </div>
+              
               {/* Carousel Banner */}
             <div
                 id="productCarousel"
@@ -202,6 +215,7 @@ const HomePage = () => {
                 style={{
                   backgroundColor: '#7D8085',
                   padding: '12px',
+                  borderRadius:'5px'
                 
                 }}
                 >
@@ -212,18 +226,18 @@ const HomePage = () => {
                       className="d-block w-100"
                       alt="Banner 1"
                       style={{
-                        height:'270px',
+                        height:'300px',
                         
                       }}
                     />
                   </div>
-                  <div className="carousel-item active">
+                  <div className="carousel-item ">
                     <img
                       src="../../../images/b6.jpg"
                       className="d-block w-100"
                       alt="Banner 2"
                       style={{
-                        height:'270px'
+                        height:'300px'
                       }}
                     />
                   </div>
@@ -233,17 +247,37 @@ const HomePage = () => {
                       className="d-block w-100"
                       alt="Banner 3"
                       style={{
-                        height:'270px'
+                        height:'300px'
                       }}
                     />
                   </div>
                   <div className="carousel-item ">
                     <img
-                      src="../../../images/b4.webp"
+                      src="../../../images/i1.jpg"
                       className="d-block w-100"
                       alt="Banner 4"
                       style={{
-                        height:'270px'
+                        height:'300px'
+                      }}
+                    />
+                  </div>
+                  <div className="carousel-item ">
+                    <img
+                      src="../../../images/i2.jpg"
+                      className="d-block w-100"
+                      alt="Banner 5"
+                      style={{
+                        height:'300px'
+                      }}
+                    />
+                  </div>
+                  <div className="carousel-item ">
+                    <img
+                      src="../../../images/i3.jpg"
+                      className="d-block w-100"
+                      alt="Banner 6"
+                      style={{
+                        height:'300px'
                       }}
                     />
                   </div>
@@ -269,17 +303,9 @@ const HomePage = () => {
               </div>
 
               {/* Product List */}
-              <h1
-                className="text-center"
-                style={{
-                  fontSize: '2rem',
-                  color: '#333',
-                  marginTop: '0',
-                }}
-              >
-                All Products List
-              </h1>
-              <div className="d-flex flex-wrap">
+              {/* {products.length} */}
+              
+              <div className="d-flex flex-wrap" >
                 {products.length === 0 ? (
                   <p>No products available</p>
                 ) : (
@@ -313,7 +339,7 @@ const HomePage = () => {
                           >
                             More details
                           </button>
-                          <button
+                          {/* <button
                             className="btn btn-outline-success ms-1"
                             onClick={() => {
                               setCart([...cart, p]);
@@ -325,7 +351,40 @@ const HomePage = () => {
                             }}
                           >
                             Add to Cart
+                          </button> */}
+
+                          <button
+                            className="btn btn-outline-success ms-1"
+                            onClick={() => {
+                              const existingProductIndex = cart.findIndex(item => item._id === p._id);
+
+                              if (existingProductIndex !== -1  ) {
+                                const updatedCart = [...cart];
+                                // Product already exists in the cart: update quantity and price
+                                if(updatedCart[existingProductIndex].noOfItems<updatedCart[existingProductIndex].quantity){
+                                  
+                                  updatedCart[existingProductIndex].noOfItems += 1; // Increment quantity
+                                  updatedCart[existingProductIndex].price += p.price; // Update total price for that product
+                                  setCart(updatedCart);
+                                  localStorage.setItem('cart', JSON.stringify(updatedCart));
+                                  toast.success('Item added to Cart');
+                                }else{
+                                  toast.error('No more element is present');
+                                }
+                                
+                              } else {
+                                // Product not in cart: add as a new item with noOfItems set to 1
+                                const updatedCart = [...cart, { ...p, noOfItems: 1 }];
+                                setCart(updatedCart);
+                                localStorage.setItem('cart', JSON.stringify(updatedCart));
+                                toast.success('Item added to Cart');
+                              }
+                              
+                            }}
+                          >
+                            Add to Cart
                           </button>
+
                         </div>
                       </div>
                     </div>

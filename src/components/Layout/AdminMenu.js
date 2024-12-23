@@ -1,13 +1,18 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
 
 const AdminMenu = () => {
   return (
     <>
         <div className="text-center">
             <h3>Admin Menu</h3>
-            <div class="list-group">
+            <div class="list-group" >
             
+                <NavLink to="/dashboard/admin" 
+                    className="list-group-item list-group-item-action"> 
+                    Admin Dashboard
+                </NavLink>
+                
                 <NavLink to="/dashboard/admin/create-category" 
                     className="list-group-item list-group-item-action"> 
                     Create Category
@@ -35,4 +40,4 @@ const AdminMenu = () => {
   )
 };
 
-export default AdminMenu
+export default AdminMenu;

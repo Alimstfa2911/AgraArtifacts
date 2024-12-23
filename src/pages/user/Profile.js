@@ -62,73 +62,76 @@ const Profile = () => {
 
     return (
         <Layout title={'Your Profile'}>
-            <div className="container-fluid profile-page-background">
+            <div className="container-fluid m-3">
                 <div className="dashboard-layout"> {/* Flexbox layout */}
                     {/* Left Sidebar */}
-                    <div className="user-sidebar">
-                        <UserMenu />
+                    <div className="col-md-3" style={{ backgroundColor: "#f8f9fa" }}>
+                        <UserMenu/>
                     </div>
 
                     {/* Right Content Area (Form) */}
-                    <div className="form-container">
-                        <form onSubmit={handleSubmit}>
-                            <h4 className='title'>User Profile</h4>
-                            <div className="mb-3">
-                                <input
-                                    type="text"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    className="form-control"
-                                    placeholder='Enter your Name'
-                                />
-                            </div>
+                    <div className='col-md-9'>
+                        <div className="form-container ">
+                            <form onSubmit={handleSubmit}>
+                                <h4 className='title'>User Profile</h4>
+                                <div className="mb-3">
+                                    <input
+                                        type="text"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        className="form-control"
+                                        placeholder='Enter your Name'
+                                    />
+                                </div>
 
-                            <div className="mb-3">
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="form-control"
-                                    placeholder='E-mail'
-                                    disabled
-                                />
-                            </div>
+                                <div className="mb-3">
+                                    <input
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className="form-control"
+                                        placeholder='E-mail'
+                                        disabled
+                                    />
+                                </div>
 
-                            <div className="mb-3">
-                                <input
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className="form-control"
-                                    placeholder='Password'
-                                />
-                            </div>
+                                <div className="mb-3">
+                                    <input
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className="form-control"
+                                        placeholder='Password'
+                                    />
+                                </div>
 
-                            <div className="mb-3">
-                                <input
-                                    type="text"
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
-                                    className="form-control"
-                                    placeholder='Phone'
-                                />
-                            </div>
+                                <div className="mb-3">
+                                    <input
+                                        type="text"
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        className="form-control"
+                                        placeholder='Phone'
+                                    />
+                                </div>
 
-                            <div className="mb-3">
-                                <input
-                                    type="text"
-                                    value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
-                                    className="form-control"
-                                    placeholder='Address'
-                                />
-                            </div>
+                                <div className="mb-3">
+                                    <input
+                                        type="text"
+                                        value={address}
+                                        onChange={(e) => setAddress(e.target.value)}
+                                        className="form-control"
+                                        placeholder='Address'
+                                    />
+                                </div>
 
-                            <button type="submit" className="btn btn-primary">
-                                Update
-                            </button>
-                        </form>
+                                <button type="submit" className="btn btn-primary">
+                                    Update
+                                </button>
+                            </form>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </Layout>

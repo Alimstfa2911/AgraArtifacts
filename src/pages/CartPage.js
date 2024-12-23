@@ -7,6 +7,8 @@ import DropIn from "braintree-web-drop-in-react";
 import axios from 'axios';
 import { useSearch } from '../context/search';
 import toast from 'react-hot-toast';
+import TypingEffect from './TypingEffect.js';
+import "../styles/Homepage.css";
 
 const CartPage = () => {
     const [cart, setCart] = useCart();
@@ -29,6 +31,8 @@ const CartPage = () => {
         };
         fetchCart();
     }, [auth]);
+
+    
 
     const totalPrice = () => {
         let total = 0;
@@ -78,6 +82,9 @@ const CartPage = () => {
         }
     };
 
+    
+
+
     return (
         <Layout>
             <div className="container">
@@ -90,10 +97,17 @@ const CartPage = () => {
                     <div className="col-md-8">
                         <div className="row">
                             <div className="col-md-12">
-                                <h1 className='text-center bg-light p-2'>
+                                {/* <h1 className='text-center bg-light p-2'>
                                     {`Hello ${auth?.token && auth?.user.name}`}
-                                </h1>
-                                <h4 className='text-center'>
+                                </h1> */}
+                                <div>
+                                    <h1 className="text-center bg-light p-2">
+                                        <TypingEffect texts={[`Hello.. ${auth?.token && auth?.user.name}`]} typingSpeed={100} pauseTime={1500} />
+                                    </h1>
+                                </div>
+                                
+
+                                <h4 className='text-center '>
                                     {cart?.length > 0
                                         ? `You have ${cart.length} items in your Cart.  ${auth?.token ? "" : " Please Login to CheckOut"}`
                                         : " Your Cart Is Empty "}
@@ -103,25 +117,28 @@ const CartPage = () => {
                         <div style={{backgroundColor:'#fff'}}>
                             {cart?.map((p) => (
                                 <div className="row mb-2 p-3 card flex-row" key={p._id}>
-                                    <div className="col-md-4">
-                                        <img
-                                            src={`/api/v1/product/product-photo/${p._id}`}
-                                            className="card-img-top"
-                                            alt={p.name}
-                                        />
-                                    </div>
-                                    <div className="col-md-8">
-                                        <h4>{p.name}</h4>
-                                        <p>{p.description}</p>
-                                        <p>{p.noOfItems}</p>
-                                        <h4>Price: {p.price}</h4>
-                                        <button
-                                            className='btn btn-danger'
-                                            onClick={() => removeCartItem(p._id)}
-                                        >
-                                            Remove
-                                        </button>
-                                    </div>
+                                    
+                                        <div className="col-md-4 ">
+                                            <img
+                                                src={`/api/v1/product/product-photo/${p._id}`}
+                                                className="card-img-top"
+                                                alt={p.name}
+                                            />
+                                        </div>
+                                        <div className="col-md-8 " >
+                                            <h4>{p.name}</h4>
+                                            <p>{p.description}</p>
+                                            <p>NoOfItems : {p.noOfItems}</p>
+                                            <h4>Price : {p.price}</h4>
+                                            <button
+                                                className='btn btn-danger'
+                                                onClick={() => removeCartItem(p._id)}
+                                            >
+                                                Remove
+                                            </button>
+                                        </div>
+                                    
+                                    
                                 </div>
                             ))}
                         </div>

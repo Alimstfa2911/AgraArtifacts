@@ -91,4 +91,18 @@
     color: #ecf0f1 !important; /* Light color for visibility */
     text-decoration: underline;
   }
+
+
+  /** TypingEffect **/
+  .cursor {
+    display: inline-block;
+    animation: blink 1s step-start infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
   

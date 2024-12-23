@@ -27,26 +27,12 @@ const Dashboard = () => {
         <div className="row">
           {/* Sidebar Section (Profile and Orders) */}
           <div className="col-md-3" style={{ backgroundColor: "#f8f9fa" }}>
-            <div className="card mb-3">
-              <div className="card-header text-center">
-                <h4>Dashboard</h4>
-              </div>
-              <div className="card-body">
-                <h5>Profile</h5>
-                <p><strong>Name:</strong> {auth?.user?.name}</p>
-                <p><strong>Email:</strong> {auth?.user?.email}</p>
-                <p><strong>Address:</strong> {auth?.user?.address}</p>
-                <hr />
-                <h5>Orders</h5>
-                <Link to="/orders" style={{ textDecoration: 'none', color: 'blue' }}>
-    <p>Your orders will appear here.</p>
-                </Link>
-              </div>
-            </div>
+            <UserMenu/>
           </div>
+          
 
           {/* Main Content (User Data Section) */}
-          <div className="col-md-9">
+          <div className="col-md-9 p-3">
             <div className="card mb-3">
               <div className="card-header text-center">
                 <h4>User Details</h4>

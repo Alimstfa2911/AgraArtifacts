@@ -9,7 +9,7 @@ const AdminDashboard = () => {
 
   return (
     <Layout title={'Admin Dashboard'}>
-        <div className="row">
+        <div className="row" >
           {/* Left Side - Admin Menu */}
           <div className="col-md-3 bg-light p-4 rounded-3 shadow-sm">
             <AdminMenu />
@@ -23,6 +23,7 @@ const AdminDashboard = () => {
                 <h5 className="text-secondary mb-2"><strong>Name:</strong> {auth?.user?.name}</h5>
                 <h5 className="text-secondary mb-2"><strong>Email:</strong> {auth?.user?.email}</h5>
                 <h5 className="text-secondary mb-2"><strong>Phone:</strong> {auth?.user?.phone}</h5>
+                <h5 className="text-secondary mb-2"><strong>Address:</strong> {auth?.user?.address}</h5>
               </div>
             </div>
           </div>
