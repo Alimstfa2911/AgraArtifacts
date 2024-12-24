@@ -34,6 +34,7 @@ router.get(
      singleCategoryController
 );
 
+
 //delete category
 router.delete(
     '/delete-category/:id',
@@ -41,5 +42,7 @@ router.delete(
     isAdmin,
     deleteCategoryController
 );
+
+
 
 export default router;

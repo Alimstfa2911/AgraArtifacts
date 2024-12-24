@@ -7,7 +7,7 @@ import {
     deleteProductController, 
     getProductController, 
     getSingleProductController, 
-    productCategoryControler, 
+    productCategoryController, 
     productCountController,
     productFiltersController, 
     productListController, 
@@ -98,8 +98,8 @@ router.get(
 //category wise product
 router.get(
     '/product-category/:slug',
-    productCategoryControler
-)
+    productCategoryController
+);
 
 //payment route
 //token
