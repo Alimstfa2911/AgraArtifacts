@@ -152,11 +152,35 @@ const HomePage = () => {
               </div>
 
               {/* Reset Filters Button */}
-              <div className="d-flex flex-column mt-3">
-                <button type="button" className="btn btn-outline-danger" onClick={() => window.location.reload()}>
-                  Reset
-                </button>
-              </div>
+            <div className="d-flex flex-column mt-3">
+              <button
+                type="button"
+                className="btn"
+                onClick={() => window.location.reload()}
+                style={{
+                  height:'33px',
+                  backgroundColor: '#e74c3c', // Elegant red color
+                  color: 'white', // White text
+                  border: 'none', // No border for a clean look
+                  borderRadius: '20px', // Rounded corners
+                  padding: '5px 5px', // Spacing for the button
+                  // fontWeight: 'bold', // Bold text for emphasis
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease', // Smooth hover effects
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'scale(1.05)';
+                  e.target.style.boxShadow = '0 6px 8px rgba(0, 0, 0, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                }}
+              >
+                Reset Filters
+              </button>
+            </div>
+
             </div>
           </div>
 
@@ -184,10 +208,13 @@ const HomePage = () => {
                   > 
                   <div className="carousel-inner">
                     <div className="carousel-item active">
-                      <img src="../../../images/b1.jpg" className="d-block w-100" alt="Banner 1" style={{ height: '300px' }} />
+                      <img src="../../../images/b3.jpg" className="d-block w-100" alt="Banner 1" style={{ height: '300px' }} />
                     </div>
                     <div className="carousel-item">
                       <img src="../../../images/b6.jpg" className="d-block w-100" alt="Banner 2" style={{ height: '300px' }} />
+                    </div>
+                    <div className="carousel-item">
+                      <img src="../../../images/i3.jpg" className="d-block w-100" alt="Banner 2" style={{ height: '300px' }} />
                     </div>
                     {/* Add more carousel items here */}
                   </div>

@@ -16,21 +16,20 @@ const Categories = () => {
                   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Optional: Adds a subtle shadow for better aesthetics
                 }}
               >
-                <h1 className='text-center'>Select Category</h1>
+                <h1 className='text-center'>Explore Products based on Individual Category</h1>
                 <hr />
               {categories?.map((c) => (
                 
                   <div className="card m-3 p-3"
-                      style={{
-                        borderRadius: "5px", // Adds border-radius to the card
-                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Optional: Adds a subtle shadow for better aesthetics
-                      }}
                       key={c._id}
                    >
                     
-                    <Link to={`/category/${c.slug}`} className="btn " style={{ textDecoration: 'none', color: 'blue' }}>
+                    <Link to={`/category/${c.slug}`} className="btn " style={{ width:'20rem' , textDecoration: 'none', color: 'blue' , borderRadius: "5px", // Adds border-radius to the card
+                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" ,backgroundColor: '#dee2e6' , borderRadius:'7px'}}>
                           {c.name}
-                      </Link>
+                    </Link>
+
+                    
                   
                   </div>
               ))}

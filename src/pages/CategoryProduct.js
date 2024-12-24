@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/cart';
 import toast from 'react-hot-toast';
 
+
 const CategoryProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
@@ -43,9 +44,11 @@ const CategoryProduct = () => {
     if (params?.slug) getProductsByCat();
   }, [params?.slug]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>
+  //     <Spinner/>
+  //   </div>;
+  // }
 
   if (error) {
     return <div>{error}</div>;

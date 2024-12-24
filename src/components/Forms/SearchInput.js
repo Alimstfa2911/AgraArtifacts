@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useSearch } from "../../context/search.js";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const SearchInput = () => {
   const [values, setValues] = useSearch();
   const navigate = useNavigate();
+  const [isFocused,setIsFocused]=useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,8 +29,10 @@ const SearchInput = () => {
           aria-label="Search"
           value={values.keyword}
           onChange={(e) => setValues({ ...values, keyword: e.target.value })}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           style={{
-            border: '1px solid #ccc',
+            border: isFocused ? '3px solid rgb(97, 186, 245)' : '1px solid #ccc',
             padding: '5px 10px',
             borderRadius: '10px', // Rounded corners
             fontSize: '16px',

@@ -45,7 +45,7 @@ const Header = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <SearchInput />
             <li className="nav-item ">
-              <NavLink to="/" className="nav-link text-white" style={{ textDecoration: 'none', padding: '10px 15px' }}>
+              <NavLink to="/" className="nav-link text-white " style={{ textDecoration: 'none', padding: '10px 15px' }}>
                 Home
               </NavLink>
             </li>
@@ -61,20 +61,19 @@ const Header = () => {
                 </Link>
                 
                 <ul className="dropdown-menu">
-                  <li>
+                  {/* <li>
                     <Link className='dropdown-item' to={"/categories"}>
                     All Categories
                     </Link>
-                  </li>
+                  </li> */}
                   
-                  {/* {categories?.map((c) => (
+                  {categories?.map((c) => (
                     <li>
-                      <Link className="dropdown-item" 
-                        to={`/categories/${c.slug}`}>
+                      <Link to={`/category/${c.slug}`} className="dropdown-item" >
                         {c.name}
                       </Link>
                     </li>
-                  ))} */}
+                  ))}
                 </ul>
             </li>
 

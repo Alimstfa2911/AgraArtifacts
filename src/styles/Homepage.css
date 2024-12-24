@@ -81,16 +81,21 @@
   }
 
   /** header **/
-  .nav-link:hover {
+   .nav-link:hover {
+    position:relative;
     text-decoration: underline;
-    color: #ecf0f1;
+    color: #fbfdfd;
   }
 
   
   .navbar-nav .nav-link:hover {
-    color: #ecf0f1 !important; /* Light color for visibility */
+    color: #0eafd7 !important; /* Light color for visibility */
     text-decoration: underline;
-  }
+ } 
+
+ 
+
+
 
 
   /** TypingEffect **/
@@ -104,5 +109,19 @@
       border-color: transparent;
     }
   }
+
+  /** Search **/
+  .btn-primary:hover {
+    background-color: #2997ce; /* Darker blue for hover effect */
+    color: rgb(9, 9, 9); /* Ensure text/icon remains visible */
+    transition: background-color 0.3s ease;
+}
+
   
-  
+/** form control **/
+.form-control:focus {
+  border-color: #3498db; /* Highlight border color */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Add a subtle shadow effect */
+  outline: none; /* Remove the default outline */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
