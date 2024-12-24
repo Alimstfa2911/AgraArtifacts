@@ -13,7 +13,7 @@ export default function useCategory () {
             setCategories(data?.category);
         }catch(error){
             console.log(error);
-
+ 
         }
     }
 
@@ -22,4 +22,4 @@ export default function useCategory () {
     },[]);
 
     return categories;
-}
+};

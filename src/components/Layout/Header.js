@@ -25,7 +25,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light sticky-top" style={{ backgroundColor: '#2c3e50', padding: '8px 0' }}>
+    <div className="navbar navbar-expand-lg navbar-light sticky-top" style={{ backgroundColor: '#2c3e50', padding: '8px 0' }}>
       <div className="container-fluid">
         <button
           className="navbar-toggler" 
@@ -44,36 +44,40 @@ const Header = () => {
           </Link>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <SearchInput />
-            <li className="nav-item">
+            <li className="nav-item ">
               <NavLink to="/" className="nav-link text-white" style={{ textDecoration: 'none', padding: '10px 15px' }}>
                 Home
               </NavLink>
             </li>
 
             <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle text-white" 
-                to={"/categories"}
-                data-bs-toggle="dropdown"
-                style={{ textDecoration: 'none', padding: '10px 15px' }}
-              >
-                Categories
-              </Link>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link className="dropdown-item" to={'/categories'}>
+                
+                <Link className="nav-link dropdown-toggle text-white" style={{ textDecoration: 'none', padding: '10px 15px' }}
+                  to={"/categories"} 
+                  
+                  data-bs-toggle="dropdown"
+                  >
+                    Categories
+                </Link>
+                
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className='dropdown-item' to={"/categories"}>
                     All Categories
-                  </Link>
-                </li>
-                {categories?.map((c) => (
-                  <li key={c._id}>
-                    <Link className="dropdown-item" to={'/'}>
-                      {c.name}
                     </Link>
                   </li>
-                ))}
-              </ul>
+                  
+                  {/* {categories?.map((c) => (
+                    <li>
+                      <Link className="dropdown-item" 
+                        to={`/categories/${c.slug}`}>
+                        {c.name}
+                      </Link>
+                    </li>
+                  ))} */}
+                </ul>
             </li>
+
 
             {!auth.user ? (
               <>
@@ -132,7 +136,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

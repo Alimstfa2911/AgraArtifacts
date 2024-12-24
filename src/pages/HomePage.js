@@ -121,7 +121,7 @@ const HomePage = () => {
   return (
     <Layout title={'All Products - Best Offer'}>
       <div className="container-fluid bg-info">
-        <div className="row mt-0">
+        <div className="row ">
           {/* Filters Section */}
           <div className="col-md-2 filters bg-light p-3" style={{ position: 'sticky', top: '20px', height: 'calc(100vh - 20px)', overflowY: 'auto', paddingRight: '15px' }}>
             <div className="d-flex flex-column">
@@ -141,8 +141,8 @@ const HomePage = () => {
 
               {/* Filter by Category Section */}
               <div className="filter-category" style={{ position: 'sticky', top: '100px' }}>
-                <h4 className="text-center">Category</h4>
-                <div className="d-flex flex-column">
+                <h4 className="text-center ">Category</h4>
+                <div className="d-flex flex-column m-3">
                   {categories?.map((c) => (
                     <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
                       {c.name}
@@ -172,7 +172,16 @@ const HomePage = () => {
                 </div>
 
                 {/* Carousel Banner */}
-                <div id="productCarousel" className="carousel slide mb-3" data-bs-ride="carousel" style={{ backgroundColor: '#7D8085', padding: '12px', borderRadius: '5px' }}>
+                <div
+                    id="productCarousel"
+                    className="carousel slide mb-3"
+                    data-bs-ride="carousel"
+                    style={{
+                      backgroundColor: '#7D8085',
+                      padding: '5px',
+                      borderRadius: '5px'
+                    }}
+                  > 
                   <div className="carousel-inner">
                     <div className="carousel-item active">
                       <img src="../../../images/b1.jpg" className="d-block w-100" alt="Banner 1" style={{ height: '300px' }} />

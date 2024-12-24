@@ -5,7 +5,7 @@ import { BiLogoWhatsapp, BiMailSend, BiPhoneCall, BiSupport } from "react-icons/
 
 const Footer = () => {
   return (
-    <div className='footer' style={{backgroundColor: '#2c3e50'}}>
+    <div className='footer bg-dark test-light' >
       
       <p className='text-center mt-3' >
         <Link to="/about">About</Link>
@@ -24,6 +24,7 @@ const Footer = () => {
       <h3 className='text-center'>
         <i>Copyright</i> &copy; Md_Mustafa_Ali
       </h3>
+      
     </div>
   );
 };

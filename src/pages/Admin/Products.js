@@ -25,7 +25,7 @@ const Products = () => {
     //lifecycle method
     useEffect(()=>{
         getAllProducts();
-    },[])
+    },[products])
 
   return (
     
@@ -35,29 +35,28 @@ const Products = () => {
                 <AdminMenu />
             </div>
 
-            
-            
             <div className="col-md-9 bg-white p-4">
-                        <h1 className="text-center">
+                <h1 className="text-center">
                             All Products List
-                        </h1>
-                        <hr />
+                </h1>
+                <hr />
 
-                        <div className="d-flex flex-column" >
+                <div className="d-flex flex-column" >
                             
-                            {products?.map((p)=>( 
+                    {products?.map((p)=>( 
                                 
-                                <Link 
-                                    key={p._id}
-                                    to={`/dashboard/admin/product/${p.slug}`}
-                                    className="product-link"
-                                    >
+                        <Link 
+                            key={p._id}
+                            to={`/dashboard/admin/product/${p.slug}`}
+                            className="product-link"
+                        >
                                         
-                                        <div className="card m-2 p-1 product-card d-flex flex-row"
-                                            style={{
-                                                    width: '90%',
-                                                    backgroundColor: '#f8f9fa', // Background color for individual product card
-                                                }} >
+                            <div className="card m-2 p-1 product-card d-flex flex-row"
+                                style={{
+                                        width: '90%',
+                                        backgroundColor: '#f8f9fa', // Background color for individual product card
+                                        }} 
+                                >
                                             <img 
                                                 src={`/api/v1/product/product-photo/${p._id}`} 
                                                 className="card-img-top"  style={{width:'20%'}}
@@ -78,14 +77,11 @@ const Products = () => {
                                                 </div>
                                             </div>
                                             
-                                        </div>
-                                </Link>
+                            </div>
+                        </Link>
                     
-                                
-                            ))}
-
-
-                        </div>
+                    ))}
+                </div>
             </div>
       </div>
     </Layout>
