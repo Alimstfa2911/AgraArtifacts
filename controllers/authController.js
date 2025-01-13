@@ -24,9 +24,7 @@ export const registerController =async (req,res)=>{
             return res.send({message:'Address is required'})
         }
 
-        if(!answer){
-            return res.send({message:'Answer is required'})
-        }
+        
 
         //existing user
 
@@ -48,7 +46,7 @@ export const registerController =async (req,res)=>{
             address,
             password:hashedPassword,
             answer
-        }).save()
+        }).save();
 
         res.status(201).send({
             success:true,

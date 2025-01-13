@@ -8,6 +8,7 @@ import categoryRoutes from './routes/categoryRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import cors from "cors";
 import cartRoutes from './routes/cartRoutes.js';
+import otpRoutes from './routes/otpRoutes.js';
 
 
 //configure env
@@ -22,6 +23,7 @@ const app = express()
 
 //middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(cors());
 
@@ -30,6 +32,9 @@ app.use('/api/v1/auth',authRoutes);
 app.use('/api/v1/category',categoryRoutes);
 app.use('/api/v1/product',productRoutes);
 app.use('./routes/cartRoutes',cartRoutes);
+
+// // OTP Routes
+app.use('/api/v1/auth', otpRoutes);
 
 
 

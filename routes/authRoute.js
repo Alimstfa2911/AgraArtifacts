@@ -24,6 +24,7 @@ router.post('/register', registerController);
 //LOGIN ||post
 router.post('/login',loginController);
 
+
 //Forget password || POST
 router.post('/forget-password',forgetPasswordController);
 
