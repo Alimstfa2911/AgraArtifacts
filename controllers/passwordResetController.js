@@ -1,7 +1,9 @@
 import nodemailer from 'nodemailer';
-import connectDB from './../config/db.js'; // Database connection
-import Otp from '../models/otpModel.js'; // Adjust the path based on your folder structure
+import connectDB from './../config/db.js'; 
+import Otp from '../models/otpModel.js'; 
+import dotenv from 'dotenv';
 
+dotenv.config();
 // Generate a random 6-digit OTP
 const generateOtp = () => {
   return Math.floor(100000 + Math.random() * 900000); // 6-digit OTP
@@ -28,8 +30,8 @@ const sendOtpEmail = async (email, otp) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'mdmustafaali29112000@gmail.com', // Update with your email
-      pass: 'scgj ciws afne iqba', // Update with your email password
+      user: 'mdmustafaali29112000@gmail.com',
+      pass: process.env.pass, 
     },
   });
 
@@ -57,7 +59,7 @@ const resetPassword = async (email, newPassword) => {
 export const handleForgetPassword = async (req, res) => {
   const { email, otp, newPassword } = req.body;
 
-  // Step 1: Check if the request is to send OTP or verify OTP
+  
   if (otp) {
     // Verify OTP and reset password
     try {

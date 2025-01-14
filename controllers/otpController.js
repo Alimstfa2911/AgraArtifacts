@@ -1,19 +1,17 @@
 import nodemailer from 'nodemailer';
-import connectDB from './../config/db.js'; // Database connectio
-import Otp from '../models/otpModel.js'; // Adjust the path based on your folder structure
+import connectDB from './../config/db.js'; 
+import Otp from '../models/otpModel.js'; 
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 
-// import { asyncHandler } from './../utils/asyncHandler.js';
-// Generate a random 6-digit OTP
+
 
 export const generateOtp = () => {
   return Math.floor(100000 + Math.random() * 900000); // 6-digit OTP
 };
 
-// Save OTP to the database with expiration (e.g., 10 minutes)
 export const saveOtpToDB =  async (email, otp) => {
   
     const expirationTime = Date.now() + 10 * 60 * 1000; // 10 minutes
@@ -38,15 +36,15 @@ export const sendOtpEmail = async (email, otp) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: "mdmustafaali29112000@gmail.com",// Update with your email
-      pass: process.env.pass , // Update with your email password
+      user: "mdmustafaali29112000@gmail.com",
+      pass: process.env.pass , 
     },
   });
 
   const mailOptions = {
-    from: process.env.email, // Sender's email
-    to: email, // Receiver's email address (dynamic)
-    subject: 'AgraArtifacts - Verify Your OTP for Registration', // Email subject
+    from: process.env.email, 
+    to: email, 
+    subject: 'AgraArtifacts - Verify Your OTP for Registration', 
     html: `
       <div style="font-family: Arial, sans-serif; text-align: center; border: 1px solid #ccc; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto;">
         <h2 style="color: #4CAF50;">AgraArtifacts</h2>
@@ -168,10 +166,8 @@ export const sendForgetPasswordOtp = async (req, res) => {
     // Generate OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-    // Save OTP to the database or in-memory store
     await saveOtpToDB(email, otp);
 
-    // Send OTP to user's email (use the SendVerificationCode function)
     await sendOtp(email, otp);
 
     res.status(200).json({ success: true, message: 'OTP sent to your email' });
@@ -184,7 +180,6 @@ export const sendForgetPasswordOtp = async (req, res) => {
 export const verifyForgetPasswordOtp = async (req, res) => {
   const { email, otp, newPassword } = req.body;
   try {
-    // Verify OTP against stored OTP in the database or in-memory store
     const storedOtp = await getOtpFromDB(email);
 
     if (storedOtp === otp) {
