@@ -1,7 +1,5 @@
 import Cart from '../models/cart.js';
- // Assuming your cart model is in models/cart.js
 
-// Get cart for a specific user
 export const getUserCart = async (req, res) => {
   try {
     const userId = req.params.userId;
