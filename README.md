@@ -34,8 +34,7 @@ AgraArtifacts is an e-commerce platform designed to help small-scale businesses 
 
 ### Frontend:
 - **React.js** - Dynamic and responsive UI
-- **Tailwind CSS** - Modern styling
-- **Redux** - State management
+- **Bootstrap** - Modern styling
 
 ### Backend:
 - **Node.js & Express.js** - Scalable API architecture
